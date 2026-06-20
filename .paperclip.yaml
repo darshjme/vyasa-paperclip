@@ -1,0 +1,172 @@
+schema: paperclip/v1
+agents:
+  vyasa:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-opus-4-8
+  chanakya:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-4-6
+  vishwakarma:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-4-6
+  kavach:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-4-6
+  indra:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-4-6
+  varuna:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-4-6
+  mitra:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-4-6
+  dr-kapoor:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-4-6
+  dr-sarabhai:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-opus-4-8
+  prometheus:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-haiku-4-5
+    inputs:
+      env:
+        GH_TOKEN:
+          kind: secret
+          requirement: optional
+  shiva:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-4-6
+    inputs:
+      env:
+        GH_TOKEN:
+          kind: secret
+          requirement: optional
+  hermes:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-4-6
+  aryabhata:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-4-6
+  sherlock:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-haiku-4-5
+  garuda:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-haiku-4-5
+  dharma:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-haiku-4-5
+  agni:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-haiku-4-5
+  vayu:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-haiku-4-5
+    inputs:
+      env:
+        GH_TOKEN:
+          kind: secret
+          requirement: optional
+  kubera:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-haiku-4-5
+  kamadeva:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-4-6
+  saraswati:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-haiku-4-5
+  dr-reddy:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-4-6
+  dr-verma:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-4-6
+  dr-iyer:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-4-6
+    inputs:
+      env:
+        GH_TOKEN:
+          kind: secret
+          requirement: optional
+  dr-sharma:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-4-6
+  dr-rao:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-haiku-4-5
+    inputs:
+      env:
+        GH_TOKEN:
+          kind: secret
+          requirement: optional
+  dr-krishnan:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-4-6
+  dr-desai:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-sonnet-4-6
+  dr-bose:
+    adapter:
+      type: claude_local
+      config:
+        model: claude-haiku-4-5

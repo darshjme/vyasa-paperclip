@@ -1,0 +1,12 @@
+Vyasa Inc. — a Paperclip / Agent Companies package
+Copyright 2026 darshjme
+
+This product includes material derived from the Vyasa Agent project
+(https://github.com/darshjme/vyasa-agent), licensed under Apache-2.0.
+The agent roster, role definitions, tool scopes, and capability matrix
+in source/ and the generated agents/ are derived from that project.
+
+The package conforms to the Agent Companies specification
+(https://agentcompanies.io/specification) and the company-creator
+conventions from Paperclip (https://github.com/paperclipai/paperclip,
+MIT-licensed). No Paperclip source code is included.
