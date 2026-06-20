@@ -115,6 +115,16 @@ MODEL_MAP = {
 # Agents that touch GitHub and need a GH_TOKEN env input.
 NEEDS_GH = {"dr-rao", "vayu", "prometheus", "shiva", "dr-iyer"}
 
+# Deserving agents pinned to Opus regardless of their source-YAML model:
+# leadership/orchestration, architecture, blocking authorities, and the
+# hardest IC reasoning roles (senior eng, root-cause, code review).
+OPUS_OVERRIDE = {
+    "vyasa", "dr-sarabhai", "chanakya",       # leadership / orchestration
+    "vishwakarma", "dr-iyer",                 # architecture
+    "kavach", "varuna", "mitra", "indra",     # blocking authorities (veto)
+    "prometheus", "sherlock", "dharma",       # hardest IC reasoning
+}
+
 
 def slug_of(emp_id: str) -> str:
     return emp_id.replace(".", "-")
@@ -249,6 +259,8 @@ def paperclip_yaml(emps: dict) -> str:
         emp = emps[slug]
         model_default = (emp.get("model_preference") or {}).get("default", "")
         cc_model = MODEL_MAP.get(model_default, "claude-opus-4-8")
+        if slug in OPUS_OVERRIDE:
+            cc_model = "claude-opus-4-8"
         lines.append(f"  {slug}:")
         lines.append("    adapter:")
         lines.append("      type: claude_local")

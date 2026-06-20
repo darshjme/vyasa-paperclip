@@ -9,32 +9,32 @@ agents:
     adapter:
       type: claude_local
       config:
-        model: claude-sonnet-4-6
+        model: claude-opus-4-8
   vishwakarma:
     adapter:
       type: claude_local
       config:
-        model: claude-sonnet-4-6
+        model: claude-opus-4-8
   kavach:
     adapter:
       type: claude_local
       config:
-        model: claude-sonnet-4-6
+        model: claude-opus-4-8
   indra:
     adapter:
       type: claude_local
       config:
-        model: claude-sonnet-4-6
+        model: claude-opus-4-8
   varuna:
     adapter:
       type: claude_local
       config:
-        model: claude-sonnet-4-6
+        model: claude-opus-4-8
   mitra:
     adapter:
       type: claude_local
       config:
-        model: claude-sonnet-4-6
+        model: claude-opus-4-8
   dr-kapoor:
     adapter:
       type: claude_local
@@ -49,7 +49,7 @@ agents:
     adapter:
       type: claude_local
       config:
-        model: claude-haiku-4-5
+        model: claude-opus-4-8
     inputs:
       env:
         GH_TOKEN:
@@ -79,7 +79,7 @@ agents:
     adapter:
       type: claude_local
       config:
-        model: claude-haiku-4-5
+        model: claude-opus-4-8
   garuda:
     adapter:
       type: claude_local
@@ -89,7 +89,7 @@ agents:
     adapter:
       type: claude_local
       config:
-        model: claude-haiku-4-5
+        model: claude-opus-4-8
   agni:
     adapter:
       type: claude_local
@@ -134,7 +134,7 @@ agents:
     adapter:
       type: claude_local
       config:
-        model: claude-sonnet-4-6
+        model: claude-opus-4-8
     inputs:
       env:
         GH_TOKEN:

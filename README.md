@@ -78,21 +78,21 @@ from a blocking director halts the batch.
 | Agent | Title | Reports to | Blocking | Model |
 |---|---|---|---|---|
 | `vyasa` | Chief Executive Officer / Chief Orchestrator | — | | opus |
-| `chanakya` | Chief Product Officer | `vyasa` | | sonnet |
-| `vishwakarma` | Chief Systems Architect | `vyasa` | | sonnet |
-| `kavach` | Chief Information Security Officer | `vyasa` | ⛔ | sonnet |
-| `indra` | VP Site Reliability | `vyasa` | ⛔ | sonnet |
-| `varuna` | Chief Risk Officer | `vyasa` | ⛔ | sonnet |
-| `mitra` | General Counsel | `vyasa` | ⛔ | sonnet |
+| `chanakya` | Chief Product Officer | `vyasa` | | opus |
+| `vishwakarma` | Chief Systems Architect | `vyasa` | | opus |
+| `kavach` | Chief Information Security Officer | `vyasa` | ⛔ | opus |
+| `indra` | VP Site Reliability | `vyasa` | ⛔ | opus |
+| `varuna` | Chief Risk Officer | `vyasa` | ⛔ | opus |
+| `mitra` | General Counsel | `vyasa` | ⛔ | opus |
 | `dr-kapoor` | Chief Marketing Officer | `vyasa` | | sonnet |
 | `dr-sarabhai` | Managing Partner (Delivery) | `vyasa` | | opus |
-| `prometheus` | Senior Full-Stack Engineer | `vishwakarma` | | haiku |
+| `prometheus` | Senior Full-Stack Engineer | `vishwakarma` | | opus |
 | `shiva` | Refactoring Specialist | `vishwakarma` | | sonnet |
 | `hermes` | Integration Specialist | `vishwakarma` | | sonnet |
 | `aryabhata` | Data & AI Scientist | `vishwakarma` | | sonnet |
-| `sherlock` | Root Cause Analyst | `vishwakarma` | | haiku |
+| `sherlock` | Root Cause Analyst | `vishwakarma` | | opus |
 | `garuda` | Recon Engineer | `vishwakarma` | | haiku |
-| `dharma` | Code Reviewer | `vishwakarma` | | haiku |
+| `dharma` | Code Reviewer | `vishwakarma` | | opus |
 | `agni` | QA Engineer | `vishwakarma` | | haiku |
 | `vayu` | DevOps Engineer | `indra` | | haiku |
 | `kubera` | Cloud Cost Optimizer | `indra` | | haiku |
@@ -100,7 +100,7 @@ from a blocking director halts the batch.
 | `saraswati` | Technical Writer | `chanakya` | | haiku |
 | `dr-reddy` | Security Chief (Pen-test) | `kavach` | | sonnet |
 | `dr-verma` | Social & Viral Lead | `dr-kapoor` | | sonnet |
-| `dr-iyer` | Chief Architect (Product) | `dr-sarabhai` | | sonnet |
+| `dr-iyer` | Chief Architect (Product) | `dr-sarabhai` | | opus |
 | `dr-sharma` | QA & Docs Lead | `dr-sarabhai` | | sonnet |
 | `dr-rao` | GitHub / Release Engineer | `dr-sarabhai` | | haiku |
 | `dr-krishnan` | HCI Director | `dr-iyer` | | sonnet |
