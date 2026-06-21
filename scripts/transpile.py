@@ -49,6 +49,10 @@ ORG = {
     "garuda":       ("Recon Engineer",                   "vishwakarma",  "Engineering"),
     "dharma":       ("Code Reviewer",                    "vishwakarma",  "Quality"),
     "agni":         ("QA Engineer",                      "vishwakarma",  "Quality"),
+    # Windows platform unit (report to vishwakarma)
+    "daksha":       ("Windows Systems Architect",        "vishwakarma",  "Engineering"),
+    "tvastar":      ("Senior Windows Full-Stack Engineer","vishwakarma", "Engineering"),
+    "ribhu":        ("Windows Desktop App Engineer",     "vishwakarma",  "Engineering"),
     # Reliability / Ops (report to indra)
     "vayu":         ("DevOps Engineer",                  "indra",        "Reliability"),
     "kubera":       ("Cloud Cost Optimizer",             "indra",        "Reliability"),
@@ -88,6 +92,9 @@ CHARTER = {
     "garuda": "Map directories, dependency graphs, hot spots, and gaps. You never mutate the codebase.",
     "dharma": "Review for correctness, security, performance, error handling, types, tests, deps, and financial precision.",
     "agni": "Test happy path, edge, error, concurrency, precision, and boundary. Tests must run green before you submit.",
+    "daksha": "Own Windows systems architecture end to end: Win32/COM, WinRT, the .NET runtime, kernel-aware design, process/threading models, MSIX packaging, code signing, and the Windows App SDK. You produce ADRs and designs for Windows desktop and service software — not code.",
+    "tvastar": "Build full-stack Windows applications: WinUI 3 / WPF / .NET MAUI front ends over ASP.NET Core or native services, with C#/.NET and C++/WinRT interop. Read before write, make surgical edits, wire installers (MSIX/WiX) and CI for Windows targets.",
+    "ribhu": "Implement and polish Windows desktop apps: WinUI 3, WPF, and WinForms in C#/.NET — MVVM, packaging, auto-update, and native interop. Ship signed, installable builds that pass on a clean Windows machine.",
     "vayu": "Own multi-stage Docker, pinned versions, Vault-only secrets, health checks, and blue/green deploys.",
     "kubera": "Own compute right-sizing, storage lifecycle, cross-AZ egress, and SaaS license audits.",
     "kamadeva": "Design user journeys, wireflows, and component states to WCAG 2.1 AA.",
@@ -113,7 +120,7 @@ MODEL_MAP = {
 }
 
 # Agents that touch GitHub and need a GH_TOKEN env input.
-NEEDS_GH = {"dr-rao", "vayu", "prometheus", "shiva", "dr-iyer"}
+NEEDS_GH = {"dr-rao", "vayu", "prometheus", "shiva", "dr-iyer", "tvastar", "ribhu"}
 
 # Deserving agents pinned to Opus regardless of their source-YAML model:
 # leadership/orchestration, architecture, blocking authorities, and the
@@ -123,6 +130,7 @@ OPUS_OVERRIDE = {
     "vishwakarma", "dr-iyer",                 # architecture
     "kavach", "varuna", "mitra", "indra",     # blocking authorities (veto)
     "prometheus", "sherlock", "dharma",       # hardest IC reasoning
+    "daksha",                                 # Windows systems architecture
 }
 
 
@@ -176,7 +184,7 @@ def agent_md(slug: str, emp: dict) -> str:
         "---",
         "",
     ]
-    body = [f"You are **{name}**, {title} in the {division} division of Vyasa Inc.", ""]
+    body = [f"You are **{name}**, {title} in the {division} division of Graymatter Online LLP.", ""]
     body.append(CHARTER.get(slug, ""))
     body.append("")
     # Workflow context
@@ -213,33 +221,40 @@ def agent_md(slug: str, emp: dict) -> str:
 
 
 def company_md(emps: dict) -> str:
+    n = len(ORG)
     fm = [
         "---",
-        "name: Vyasa Inc.",
-        "description: A 29-agent autonomous software & product company — the Vyasa Agent fleet expressed as a Paperclip company.",
-        "slug: vyasa-inc",
+        "name: Graymatter Online LLP",
+        f"description: A {n}-agent autonomous software & product company — the Vyasa Agent "
+        "fleet (plus a Windows platform unit) expressed as a Paperclip company.",
+        "slug: graymatter-online-llp",
         "schema: agentcompanies/v1",
-        "version: 0.1.0",
+        "version: 0.2.0",
         "license: Apache-2.0",
         "authors:",
         "  - name: darshjme",
         "goals:",
         "  - Turn product briefs into shipped, reviewed, secured software end to end.",
+        "  - Deliver first-class Windows desktop and full-stack Windows applications.",
         "  - Enforce a hard quality gate (confidence_score >= 0.80) on every output.",
         "  - Honour four blocking authorities: Security, Risk, Legal, Reliability.",
         "tags:",
         "  - engineering",
         "  - product",
+        "  - windows",
         "  - autonomous-company",
         "---",
         "",
-        "**Vyasa Inc.** is the [Vyasa Agent](https://github.com/darshjme/vyasa-agent) "
-        "29-partner fleet re-expressed as a [Paperclip](https://github.com/paperclipai/paperclip) "
+        "**Graymatter Online LLP** is the [Vyasa Agent](https://github.com/darshjme/vyasa-agent) "
+        f"fleet — extended with a dedicated Windows platform unit — re-expressed as a "
+        "[Paperclip](https://github.com/paperclipai/paperclip) "
         "company conforming to the [Agent Companies spec](https://agentcompanies.io/specification).",
         "",
         "**Vyasa** is the CEO. Eight directors run Product, Engineering, Security, Reliability, "
-        "Risk, Legal, Growth, and Delivery. Specialists execute beneath them. Four directors "
-        "(Security/`kavach`, Risk/`varuna`, Legal/`mitra`, Reliability/`indra`) hold blocking veto power.",
+        "Risk, Legal, Growth, and Delivery. Specialists execute beneath them — including a "
+        "Windows unit (`daksha`, `tvastar`, `ribhu`) under the Chief Systems Architect. Four "
+        "directors (Security/`kavach`, Risk/`varuna`, Legal/`mitra`, Reliability/`indra`) hold "
+        "blocking veto power.",
         "",
         "**Workflow** is hub-and-spoke with pipeline stages inside Engineering and Delivery: the "
         "CEO decomposes a goal to directors; directors dispatch to specialists; work flows "
@@ -311,19 +326,19 @@ def main() -> None:
     assert not missing, f"org map references unknown agents: {missing}"
     assert not extra, f"employees not placed in org map: {extra}"
 
-    (ROOT / "COMPANY.md").write_text(company_md(emps))
+    (ROOT / "COMPANY.md").write_text(company_md(emps), encoding="utf-8")
 
     for slug, emp in emps.items():
         d = ROOT / "agents" / slug
         d.mkdir(parents=True, exist_ok=True)
-        (d / "AGENTS.md").write_text(agent_md(slug, emp))
+        (d / "AGENTS.md").write_text(agent_md(slug, emp), encoding="utf-8")
 
     for slug, assignee, body, schedule in TASKS:
         d = ROOT / "tasks" / slug
         d.mkdir(parents=True, exist_ok=True)
-        (d / "TASK.md").write_text(task_md(slug, assignee, body, schedule))
+        (d / "TASK.md").write_text(task_md(slug, assignee, body, schedule), encoding="utf-8")
 
-    (ROOT / ".paperclip.yaml").write_text(paperclip_yaml(emps))
+    (ROOT / ".paperclip.yaml").write_text(paperclip_yaml(emps), encoding="utf-8")
 
     print(f"Generated {len(emps)} agents, {len(TASKS)} tasks.")
     print("Wrote: COMPANY.md, agents/<slug>/AGENTS.md, tasks/<slug>/TASK.md, .paperclip.yaml")

@@ -1,0 +1,35 @@
+schema_version: 1
+id: ribhu
+display_name: Ribhu
+registry_source: graymatter
+role_key: windows_desktop
+system_prompt_ref: "graymatter:windows_desktop"
+allowed_tools:
+  - bash
+  - file_read
+  - file_write
+  - file_edit
+  - grep
+  - glob
+  - git
+allowed_plugins:
+  - memory
+  - context_engine
+memory_namespace: ribhu
+model_preference:
+  default: openrouter/anthropic/sonnet-4-6
+  provider: openrouter
+  fallback:
+    model: openrouter/anthropic/haiku-4-5
+    provider: openrouter
+temperature: 0.3
+max_turns: 25
+messaging_aliases:
+  - "@ribhu"
+  - "@windows-desktop"
+  - "/ask ribhu"
+visibility: internal
+tags:
+  - engineering
+  - windows
+  - desktop

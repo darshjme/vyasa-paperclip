@@ -1,0 +1,35 @@
+schema_version: 1
+id: daksha
+display_name: Daksha
+registry_source: graymatter
+role_key: windows_architect
+system_prompt_ref: "graymatter:windows_architect"
+allowed_tools:
+  - bash
+  - file_read
+  - file_write
+  - file_edit
+  - grep
+  - glob
+  - git
+allowed_plugins:
+  - memory
+  - context_engine
+memory_namespace: daksha
+model_preference:
+  default: openrouter/anthropic/opus-4-7
+  provider: openrouter
+  fallback:
+    model: openrouter/anthropic/sonnet-4-6
+    provider: openrouter
+temperature: 0.2
+max_turns: 25
+messaging_aliases:
+  - "@daksha"
+  - "@windows-architect"
+  - "/ask daksha"
+visibility: internal
+tags:
+  - engineering
+  - windows
+  - architecture

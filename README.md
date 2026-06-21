@@ -1,7 +1,9 @@
-# Vyasa Inc. — a Paperclip company
+# Graymatter Online LLP — a Paperclip company
 
-**Vyasa Inc.** is a 29-agent autonomous software & product company. It is the
-[Vyasa Agent](https://github.com/darshjme/vyasa-agent) fleet re-expressed as a
+**Graymatter Online LLP** is a 32-agent autonomous software & product company. It is the
+[Vyasa Agent](https://github.com/darshjme/vyasa-agent) fleet — extended with a dedicated
+**Windows platform unit** (systems architecture + full-stack Windows app development) —
+re-expressed as a
 [**Paperclip**](https://github.com/paperclipai/paperclip) company that conforms to the
 [**Agent Companies** specification](https://agentcompanies.io/specification) (`agentcompanies/v1`).
 
@@ -14,7 +16,8 @@ Board (you)
   └─ Vyasa — CEO / Chief Orchestrator
        ├─ Chanakya — CPO ............... Kamadeva, Saraswati
        ├─ Vishwakarma — Chief Architect  Prometheus, Shiva, Hermes, Aryabhata,
-       │                                 Sherlock, Garuda, Dharma, Agni
+       │                                 Sherlock, Garuda, Dharma, Agni,
+       │                                 Daksha, Tvastar, Ribhu  (Windows unit)
        ├─ Kavach — CISO ⛔ .............. Dr. Reddy
        ├─ Indra — VP SRE ⛔ ............. Vayu, Kubera
        ├─ Varuna — Chief Risk Officer ⛔
@@ -43,7 +46,7 @@ git clone https://github.com/darshjme/vyasa-paperclip.git
 cd vyasa-paperclip
 
 # import the company into Paperclip
-paperclipai company import --from .
+paperclipai company import . --yes
 ```
 
 Then open the dashboard, confirm the org chart, and hire **Vyasa** as CEO. Vyasa
@@ -94,6 +97,9 @@ from a blocking director halts the batch.
 | `garuda` | Recon Engineer | `vishwakarma` | | haiku |
 | `dharma` | Code Reviewer | `vishwakarma` | | opus |
 | `agni` | QA Engineer | `vishwakarma` | | haiku |
+| `daksha` | Windows Systems Architect | `vishwakarma` | | opus |
+| `tvastar` | Senior Windows Full-Stack Engineer | `vishwakarma` | | sonnet |
+| `ribhu` | Windows Desktop App Engineer | `vishwakarma` | | sonnet |
 | `vayu` | DevOps Engineer | `indra` | | haiku |
 | `kubera` | Cloud Cost Optimizer | `indra` | | haiku |
 | `kamadeva` | UX & Workflow Designer | `chanakya` | | sonnet |
@@ -121,6 +127,7 @@ Carried over from the Vyasa fleet — which agent leads, and the typical follow-
 | Codebase recon | `garuda` | hand off to relevant lead |
 | Docs / runbook | `saraswati` | `dr-sharma` review |
 | UX / admin workflow | `kamadeva` | `dr-krishnan` → `prometheus` |
+| Windows app / desktop | `daksha` | `tvastar` → `ribhu` → `agni` |
 | Plan / strategy | `chanakya` | `vishwakarma` |
 | Cost audit | `kubera` | `vishwakarma` |
 | Refactor | `shiva` | `agni` |
@@ -143,7 +150,7 @@ Pre-defined recurring tasks under [`tasks/`](tasks/):
 
 ```
 COMPANY.md              # company root (agentcompanies/v1)
-agents/<slug>/AGENTS.md # 29 agent definitions
+agents/<slug>/AGENTS.md # 32 agent definitions
 tasks/<slug>/TASK.md    # scheduled routines
 .paperclip.yaml         # Paperclip vendor extension (adapters + env)
 source/                 # vendored Vyasa employee YAMLs (single source of truth)

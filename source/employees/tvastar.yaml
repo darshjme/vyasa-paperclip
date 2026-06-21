@@ -1,0 +1,35 @@
+schema_version: 1
+id: tvastar
+display_name: Tvastar
+registry_source: graymatter
+role_key: windows_fullstack
+system_prompt_ref: "graymatter:windows_fullstack"
+allowed_tools:
+  - bash
+  - file_read
+  - file_write
+  - file_edit
+  - grep
+  - glob
+  - git
+allowed_plugins:
+  - memory
+  - context_engine
+memory_namespace: tvastar
+model_preference:
+  default: openrouter/anthropic/sonnet-4-6
+  provider: openrouter
+  fallback:
+    model: openrouter/anthropic/haiku-4-5
+    provider: openrouter
+temperature: 0.3
+max_turns: 25
+messaging_aliases:
+  - "@tvastar"
+  - "@windows-fullstack"
+  - "/ask tvastar"
+visibility: internal
+tags:
+  - engineering
+  - windows
+  - fullstack
